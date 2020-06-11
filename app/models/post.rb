@@ -4,11 +4,13 @@ class Post < ApplicationRecord
 
   validate :validate_content_length
   validate :validate_content_byte
+  validate :validate_content_picture
 
-  MAX_CONTENT_LENGTH = 50
+  MAX_CONTENT_LENGTH = 300
   ONE_KILOBYTE = 1024
   MEGA_BYTE = 4
   MAX_CONTENT_BYTE = MEGA_BYTE * ONE_KILOBYTE * 1_000
+  MAX_COUNT_PICTURE = 8
   
   private
 
@@ -36,6 +38,17 @@ class Post < ApplicationRecord
         max_content_mega_byte: MEGA_BYTE
       )
       end
+    end
+  end
+
+  def validate_content_picture
+    picture = content.body.attachables.grep(ActiveStorage::Blob).count
+    if picture > MAX_COUNT_PICTURE
+      errors.add(
+      :base,
+      :picture_count_over,
+      max_count_picture: MAX_COUNT_PICTURE
+      )
     end
   end
 

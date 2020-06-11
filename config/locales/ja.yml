@@ -11,6 +11,7 @@ ja:
                   too_long: が%{max_content_length}文字を超えています。[%{length}/%{max_content_length}]
              base:
                   byte_over: 添付ファイルは%{max_content_mega_byte}MB以下にしてください。[%{byte}/%{max_content_byte}]
+                  picture_count_over: 添付ファイルは%{max_count_picture}個以下にしてください。
 
 
     attributes:
