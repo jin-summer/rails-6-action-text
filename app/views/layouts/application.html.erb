@@ -9,7 +9,20 @@
     <%= javascript_pack_tag 'application' %>
   </head>
 
-  <body>
+<header>
+  <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+  <a class="h2 my-0 mr-md-auto font-weight-normal text-dark" href="/">app name</a>
+   <nav class="my-2 my-md-0 mr-md-3">
+     <a class="p-2 text-dark" href="/posts">投稿一覧</a>
+     <a class="p-2 text-dark" href="/posts">マイページ</a>
+     <a class="p-2 text-dark" href="/posts">アカウント作成</a>
+   </nav>
+   <a class="btn btn-outline-primary" href="/posts">ログイン</a>
+</div>
+ <p class="notice"><%= notice %></p>
+ <p class="alert"><%= alert %></p>
+ </header>
+ 　<body>
     <%= yield %>
   </body>
 </html>
