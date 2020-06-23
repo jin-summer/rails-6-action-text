@@ -12,13 +12,20 @@
 <header>
   <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
   <a class="h2 my-0 mr-md-auto font-weight-normal text-dark" href="/">app name</a>
+  <% if signed_in? %>
    <nav class="my-2 my-md-0 mr-md-3">
      <a class="p-2 text-dark" href="/posts/new">新規投稿</a>
      <a class="p-2 text-dark" href="/posts">投稿一覧</a>
-     <a class="p-2 text-dark" href="#">マイページ</a>
-     <a class="p-2 text-dark" href="#">アカウント作成</a>
+     <%= link_to 'プロフィール', current_user, class:'p-2 text-dark' %>
+     <%= link_to 'ユーザ一覧', users_path, class:'p-2 text-dark' %>
    </nav>
-   <a class="btn btn-outline-primary" href="#">ログイン</a>
+   <%= link_to 'ログアウト', signout_path, class: 'btn btn-outline-primary', method: :delete %>
+  <% else %>
+  <nav class="my-2 my-md-0 mr-md-3">
+  <%= link_to 'アカウント作成', signup_path, class: 'p-2 text-dark' %>
+</nav>
+<%= link_to 'ログイン', signin_path, class: 'btn btn-outline-primary' %>
+<% end %>
 </div>
  <p class="notice"><%= notice %></p>
  <p class="alert"><%= alert %></p>

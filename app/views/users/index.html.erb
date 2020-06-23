@@ -1,0 +1,14 @@
+<div class="container">
+<div class="h1 p-2 m-3 bg-info text-white">ユーザー一覧</div>
+
+<table>
+  <tbody>
+    <% @users.each do |user| %>
+    <ul class="list-group">
+      <%= link_to user.name, user, class:'list-group-item mx-3' %>
+    </ul>
+    <% end %>
+  </tbody>
+</table>
+
+</div>

@@ -9,8 +9,8 @@
     <% @posts.each do |post| %>
       <div class="jumbotron m-3 p-3">
       <div class="h3"><%= link_to post.title, post %></div><br>
-      <button type="button" class="btn btn-light btn-sm"><%= link_to '編集する', edit_post_path(post) %></button>
-      <button type="button" class="btn btn-light btn-sm"><%= link_to '削除する', post, method: :delete, data: { confirm: 'Are you sure?' } %></button>
+      <%= link_to '編集する', edit_post_path(post), class:'btn btn-outline-warning btn-sm' %>
+      <%= link_to '削除する', post, class:'btn btn-outline-warning btn-sm', method: :delete, data: { confirm: 'Are you sure?' } %>
         </div>
     <% end %>
   </tbody>
