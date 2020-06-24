@@ -1,11 +1,19 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :ensure_correct_user, only: [:edit,:update,:destroy]
+
+  def ensure_correct_user
+    @post = Post.find_by(id: params[:id])
+    if @post.user_id != @current_user.id
+    flash[:notice] = "権限がありません"
+    redirect_to("/posts")
+    end
+  end
 
   # GET /posts
   # GET /posts.json
   def index
     @posts = Post.all.order(created_at: :desc)
-
   end
 
   # GET /posts/1

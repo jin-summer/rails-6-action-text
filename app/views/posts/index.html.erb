@@ -1,7 +1,6 @@
 <div class="container">
 <div class="h1 p-2 m-3 bg-primary text-white">Posts</div>
 
-
 <table>
   <tbody>
     <% @posts.each do |post| %>
@@ -9,10 +8,12 @@
       <div class="jumbotron m-1 p-3">
         <div class="h3"><%= link_to post.title, post %></div>
       </div>
+      <% if post.user_id == @current_user.id %>
       <div class="m-1 p-1">
         <%= link_to '編集する', edit_post_path(post), class:'btn btn-outline-warning btn-sm' %>
         <%= link_to '削除する', post, class:'btn btn-outline-warning btn-sm', method: :delete, data: { confirm: 'Are you sure?' } %>
       </div>
+      <% end %>
      </div><br>
     <% end %>
   </tbody>
