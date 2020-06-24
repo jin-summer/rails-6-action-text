@@ -8,7 +8,7 @@
       <div class="jumbotron m-1 p-3">
         <div class="h3"><%= link_to post.title, post %></div>
       </div>
-      <% if post.user_id == @current_user.id %>
+      <% if post.user_id == @current.id %>
       <div class="m-1 p-1">
         <%= link_to '編集する', edit_post_path(post), class:'btn btn-outline-warning btn-sm' %>
         <%= link_to '削除する', post, class:'btn btn-outline-warning btn-sm', method: :delete, data: { confirm: 'Are you sure?' } %>

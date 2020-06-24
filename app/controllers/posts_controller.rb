@@ -4,7 +4,7 @@ class PostsController < ApplicationController
 
   def ensure_correct_user
     @post = Post.find_by(id: params[:id])
-    if @post.user_id != @current_user.id
+    if @post.user_id != @current.id
     flash[:notice] = "権限がありません"
     redirect_to("/posts")
     end
@@ -36,7 +36,7 @@ class PostsController < ApplicationController
     @post = Post.new(
       post_params
       )
-    @post.user_id = @current_user.id
+    @post.user_id = @current.id
 
     respond_to do |format|
       if @post.save
