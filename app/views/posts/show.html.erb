@@ -6,6 +6,9 @@
   </div>
   <div class="m-3">
     <%= link_to '投稿一覧', posts_path,class:'btn btn-outline-info' %>
+  <% if @post.user_id == @current_user.id %>
     <%= link_to '編集する', edit_post_path(@post),class:'btn btn-outline-info' %>
+  <% end %>
+    
   </div>
 </div>
