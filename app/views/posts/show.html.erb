@@ -1,11 +1,11 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @post.title %>
-</p>
-
-<%= @post.content %>
-
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+<div class="container">
+  <div class="jumbotron m-3">
+    <h1 class="display-4"><%= @post.title %></h1>
+    <hr class="my-4">
+    <p><%= @post.content %></p>
+  </div>
+  <div class="m-3">
+    <%= link_to '投稿一覧', posts_path,class:'btn btn-outline-info' %>
+    <%= link_to '編集する', edit_post_path(@post),class:'btn btn-outline-info' %>
+  </div>
+</div>
